@@ -5,9 +5,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" href="cart.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* cart */
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav .nav-container {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    width: 114px;
+    height: 115px;
+    margin-right: 20px;
+}
+
+nav h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.separate{
+    width: 100%;
+    height:2px;
+    background-color: #3d0101;
+}
+.cart {
+    background-color: white;
+    padding: 20px;
+    width: 100vw; /* Full width of the viewport */
+    height: calc(100vh - 80px); /* Full height minus nav height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.cart-table th, .cart-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background-color: #f8f8f8;
+}
+
+.cart-table td {
+    text-align: center;
+}
+
+.cart-table .item-quantity {
+    margin: 0 10px;
+}
+
+button {
+    background-color: #3d0101;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #fda085;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 10px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
         /* Basic styles for the modal */
         .modal {
             display: none;
@@ -109,7 +288,7 @@
             <h1>Your Ribs Circle Cart</h1>
         </div>
     </nav>
-
+<div class = "separate"></div>
     <!-- Cart Table -->
     <div class="cart">
         <table class="cart-table">
@@ -189,7 +368,7 @@
     <!-- Script to Retrieve Cart from localStorage and Display It -->
     <script>
         let currentPage = 1;
-        const itemsPerPage = 3;
+        const itemsPerPage = 10;
 
         function populateCart() {
             const cartTableBody = document.querySelector('.cart-table tbody');

@@ -25,10 +25,10 @@
                     </div>
                 </li>
                 <li><a href="gallery.php">Gallery</a></li>
-                <li><a href="./Register/signup.php">Sign Up</a></li>
+                <li><a href="http://localhost/Ribs_Circle/Register/register.php">Sign Up</a></li>
             </ul>
             <ul>
-                <li class="sign-in"><a href="sign-in.php">Sign In</a></li>
+                <li class="sign-in"><a href="http://localhost/Ribs_Circle/login/login.php">Sign In</a></li>
             </ul>
         </nav>
         <div class="content">

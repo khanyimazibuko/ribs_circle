@@ -165,10 +165,12 @@ $conn->close();
             </select>
 
             <button type="submit">Register</button>
+            <!--it should take me to the login-->
+
         </form>
 
         <div class="already-registered">
-            <p>Already registered? <a href="../login/login.php">Log in here</a>.</p>
+            <p>Already registered? <a href="http://localhost/Ribs_Circle/login/login.php">Log in here</a>.</p>
         </div>
 
         <div class="social-icons">
